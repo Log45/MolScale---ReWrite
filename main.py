@@ -6,13 +6,11 @@ from scaledata import weight
 import time
 import random
 import threading
+import platform
 #from main import alive
 
 #Functions for each button on the GUI:
 
-#define font variable to easily change the font for every button
-
-exit = False
 #function to retrieve information from the button being pressed and inserting it into the entry boxes
 def compound(element):
     """_summary_
@@ -43,7 +41,7 @@ def get_button(el):
     """
     This function sets the values for each button in the interactive periodic table. The text on the button is an element called from the elements.py dictionaries, the font is set to the global variable created at the top of the file, the button width is set to 4, and the Button's command is set to the compound function. 
     Args:
-        el (_String_): el is the same value as element in the compound() function. It gets element information from a dictionary in elements.py and is called by the for loop that lays out all the Buttons on the GUI. 
+        el (String): el is the same value as element in the compound() function. It gets element information from a dictionary in elements.py and is called by the for loop that lays out all the Buttons on the GUI. 
 
     Returns:
         _tkinter Button_: 
@@ -201,16 +199,25 @@ def main():
     root = Tk()
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
+    print(screen_width, screen_height)
     root.title("Mol Calculator")
     root_background_color = "dark grey"
     root.configure(background=root_background_color)
 
+    if screen_width == 2560 and screen_height == 1440:
+        button_scale = 150
+        entry_scale = 24.7
+        font_scale = 44.44
+    elif screen_width == 1440 and screen_height == 900:
+        button_scale = 150
+        entry_scale = 15
+        font_scale = 40
     global BUTTON_WIDTH
-    BUTTON_WIDTH = int(screen_width / 150)
+    BUTTON_WIDTH = int(screen_width / button_scale)
     global ENTRY_WIDTH
-    ENTRY_WIDTH = int(screen_width / 24.7)
+    ENTRY_WIDTH = int(screen_width / entry_scale)
     global font
-    font = ("Times", int(screen_height/44.44))
+    font = ("Times", int(screen_height/font_scale))
 
     Elements = set()
     for i in MASS:
@@ -299,12 +306,15 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    t1 = threading.Thread(target=main)
-    t2 = threading.Thread(target=scale)
-    
-    t1.start()
-    t2.start()
-    
-    t1.join()
-    t2.join()
+    if platform.uname()[0] == "Darwin":
+        main()
+    else:
+        t1 = threading.Thread(target=main)
+        t2 = threading.Thread(target=scale)
+        
+        t1.start()
+        t2.start()
+        
+        t1.join()
+        t2.join()
     
