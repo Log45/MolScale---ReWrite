@@ -1,0 +1,302 @@
+# Define different types of elements by set
+REACTIVE = {"H", "C", "N", "O", "F", "Cl", "P", "S", "Se", "Br", "I"}
+
+UNKNOWN = {"Mt", "Ds", "Rg", "Cn", "Nh", "Fl", "Mc", "Lv", "Ts", "Og"}
+
+NOBLE = {"He", "Ne", "Ar", "Kr", "Xe", "Rn"}
+
+METALLOID = {"B", "Si", "Ge", "As", "Sb", "Te", "At"}
+
+POST_TRANSITION = {"Al", "Ga", "In", "Tl", "Pb", "Sn", "Bi", "Po"}
+
+TRANSITION = {"Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn",
+              "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd",
+              "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Rf",
+              "Db", "Sg", "Bh", "Hs"}
+
+LANTHANOID = {"La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", 
+              "Ho", "Er", "Tm", "Yb", "Lu"}
+
+ACTINOID = {"Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", 
+            "Es", "Fm", "Md", "No", "Lr"}
+
+ALKALINE_EARTH = {"Be", "Mg", "Ca", "Sr", "Ba", "Ra"}
+
+ALKALI = {"Li", "Na", "K", "Rb", "Cs", "Fr"}
+
+#Dictionary to define the mass of each element on the periodic table
+MASS = {
+#   "0":    0.00,
+    "H":    1.01,
+    "He":   4.00,
+    "Li":   6.94,
+    "Be":   9.01,
+    "B":   10.82,
+    "C":   12.01,
+    "N":   14.01,
+    "O":   16.00,
+    "F":   19.00,
+    "Ne":  20.18,
+    "Na":  22.99,
+    "Mg":  24.32,
+    "Al":  26.98,
+    "Si":  28.09,
+    "P":   30.98,
+    "S":   32.07,
+    "Cl":  35.46,
+    "Ar":  39.94,
+    "K":   39.10,
+    "Ca":  40.08,
+    "Sc":  44.96,
+    "Ti":  47.90,
+    "V":   50.95,
+    "Cr":  52.01,
+    "Mn":  54.94,
+    "Fe":  55.85,
+    "Co":  58.94,
+    "Ni":  58.71,
+    "Cu":  63.54,
+    "Zn":  65.38,
+    "Ga":  69.72,
+    "Ge":  72.60,
+    "As":  74.91,
+    "Se":  78.96,
+    "Br":  79.92,
+    "Kr":  83.80,
+    "Rb":  85.48,
+    "Sr":  87.63,
+    "Y":   88.92,
+    "Zr":  91.22,
+    "Nb":  92.91,
+    "Mo":  95.95,
+    "Tc":  99.00,
+    "Ru": 101.10,
+    "Rh": 102.91,
+    "Pd": 106.40,
+    "Ag": 107.88,
+    "Cd": 112.41,
+    "In": 114.82,
+    "Sn": 118.70,
+    "Sb": 121.76,
+    "Te": 127.61,
+    "I":  126.91,
+    "Xe": 131.30,
+    "Cs": 132.91,
+    "Ba": 137.56,
+    "La": 138.92,
+    "Ce": 140.13,
+    "Pr": 140.92,
+    "Nd": 144.27,
+    "Pm": 145.00,
+    "Sm": 150.35,
+    "Eu": 152.00,
+    "Gd": 157.26,
+    "Tb": 158.93,
+    "Dy": 162.51,
+    "Ho": 164.94,
+    "Er": 167.27,
+    "Tm": 168.94,
+    "Yb": 173.40,
+    "Lu": 174.99,
+    "Hf": 178.50,
+    "Ta": 180.95,
+    "W":  183.86,
+    "Re": 186.22,
+    "Os": 190.20,
+    "Ir": 192.20,
+    "Pt": 195.09,
+    "Au": 197.00,
+    "Hg": 200.61,
+    "Tl": 204.39,
+    "Pb": 207.21,
+    "Bi": 208.98,
+    "Po": 209.00,
+    "At": 210.00,
+    "Rn": 222.00,
+    "Fr": 223.00,
+    "Ra": 226.05,
+    "Ac": 227.00,
+    "Th": 232.05,
+    "Pa": 231.00,
+    "U":  238.07,
+    "Np": 237.00,
+    "Pu": 242.00,
+    "Am": 243.00,
+    "Cm": 245.00,
+    "Bk": 249.00,
+    "Cf": 250.00,
+    "Es": 253.00,
+    "Fm": 255.00,
+    "Md": 257.00,
+    "No": 258.00,
+    "Lr": 266.00,
+    "Rf": 267.00,
+    "Db": 268.00,
+    "Sg": 269.00,
+    "Bh": 270.00,
+    "Hs": 277.00,
+    "Mt": 278.00,
+    "Ds": 281.00,
+    "Rg": 281.00,
+    "Cn": 285.00,
+    "Nh": 286.00,
+    "Fl": 289.00,
+    "Mc": 290.00,
+    "Lv": 298.00,
+    "Ts": 294.00,
+    "Og": 294.00,
+}
+
+#Dictionary to define the tkinter coordinate position for each element on the periodic table
+POS = { 
+#   "0":  ( 0,  0),
+    "H":  ( 1,  0),
+    "He": ( 1, 17),
+    "Li": ( 2,  0),
+    "Be": ( 2,  1),
+    "B":  ( 2, 12),
+    "C":  ( 2, 13),
+    "N":  ( 2, 14),
+    "O":  ( 2, 15),
+    "F":  ( 2, 16),
+    "Ne": ( 2, 17),
+    "Na": ( 3,  0),
+    "Mg": ( 3,  1),
+    "Al": ( 3, 12),
+    "Si": ( 3, 13),
+    "P":  ( 3, 14),
+    "S":  ( 3, 15),
+    "Cl": ( 3, 16),
+    "Ar": ( 3, 17),
+    "K":  ( 4,  0),
+    "Ca": ( 4,  1),
+    "Sc": ( 4,  2),
+    "Ti": ( 4,  3),
+    "V":  ( 4,  4),
+    "Cr": ( 4,  5),
+    "Mn": ( 4,  6),
+    "Fe": ( 4,  7),
+    "Co": ( 4,  8),
+    "Ni": ( 4,  9),
+    "Cu": ( 4, 10),
+    "Zn": ( 4, 11),
+    "Ga": ( 4, 12),
+    "Ge": ( 4, 13),
+    "As": ( 4, 14),
+    "Se": ( 4, 15),
+    "Br": ( 4, 16),
+    "Kr": ( 4, 17),
+    "Rb": ( 5,  0),
+    "Sr": ( 5,  1),
+    "Y":  ( 5,  2),
+    "Zr": ( 5,  3),
+    "Nb": ( 5,  4),
+    "Mo": ( 5,  5),
+    "Tc": ( 5,  6),
+    "Ru": ( 5,  7),
+    "Rh": ( 5,  8),
+    "Pd": ( 5,  9),
+    "Ag": ( 5, 10),
+    "Cd": ( 5, 11),
+    "In": ( 5, 12),
+    "Sn": ( 5, 13),
+    "Sb": ( 5, 14),
+    "Te": ( 5, 15),
+    "I":  ( 5, 16),
+    "Xe": ( 5, 17),
+    "Cs": ( 6,  0),
+    "Ba": ( 6,  1),
+    "La": ( 9,  2),
+    "Ce": ( 9,  3),
+    "Pr": ( 9,  4),
+    "Nd": ( 9,  5),
+    "Pm": ( 9,  6),
+    "Sm": ( 9,  7),
+    "Eu": ( 9,  8),
+    "Gd": ( 9,  9),
+    "Tb": ( 9, 10),
+    "Dy": ( 9, 11),
+    "Ho": ( 9, 12),
+    "Er": ( 9, 13),
+    "Tm": ( 9, 14),
+    "Yb": ( 9, 15),
+    "Lu": ( 9, 16),
+    "Hf": ( 6,  3),
+    "Ta": ( 6,  4),
+    "W":  ( 6,  5),
+    "Re": ( 6,  6),
+    "Os": ( 6,  7),
+    "Ir": ( 6,  8),
+    "Pt": ( 6,  9),
+    "Au": ( 6, 10),
+    "Hg": ( 6, 11),
+    "Tl": ( 6, 12),
+    "Pb": ( 6, 13),
+    "Bi": ( 6, 14),
+    "Po": ( 6, 15),
+    "At": ( 6, 16),
+    "Rn": ( 6, 17),
+    "Fr": ( 7,  0),
+    "Ra": ( 7,  1),
+    "Ac": (10,  2),
+    "Th": (10,  3),
+    "Pa": (10,  4),
+    "U":  (10,  5),
+    "Np": (10,  6),
+    "Pu": (10,  7),
+    "Am": (10,  8),
+    "Cm": (10,  9),
+    "Bk": (10, 10),
+    "Cf": (10, 11),
+    "Es": (10, 12),
+    "Fm": (10, 13),
+    "Md": (10, 14),
+    "No": (10, 15),
+    "Lr": (10, 16),
+    "Rf": ( 7,  3),
+    "Db": ( 7,  4),
+    "Sg": ( 7,  5),
+    "Bh": ( 7,  6),
+    "Hs": ( 7,  7),
+    "Mt": ( 7,  8),
+    "Ds": ( 7,  9),
+    "Rg": ( 7, 10),
+    "Cn": ( 7, 11),
+    "Nh": ( 7, 12),
+    "Fl": ( 7, 13),
+    "Mc": ( 7, 14),
+    "Lv": ( 7, 15),
+    "Ts": ( 7, 16),
+    "Og": ( 7, 17),
+}
+
+class Element():
+    """
+    Class representing elements on the periodic table.
+    """
+    def __init__(self, name:str) -> None:
+        self.name = name
+        self.mass = MASS[name]
+        self.position = POS[name]
+        if name in REACTIVE: 
+            self.type = "Reactive"
+        elif name in UNKNOWN:
+            self.type = "Unknown"
+        elif name in NOBLE:
+            self.type = "Noble"
+        elif name in METALLOID:
+            self.type = "Metalloid"
+        elif name in TRANSITION:
+            self.type = "Transition"
+        elif name in LANTHANOID:
+            self.type = "Lanthanoid"
+        elif name in ACTINOID:
+            self.type = "Actinoid"
+        elif name in ALKALI:
+            self.type = "Alkali"
+        elif name in ALKALINE_EARTH:
+            self.type = "Alkaline Earth"
+        elif name in POST_TRANSITION:
+            self.type = "Post Transition"
+        else:
+            self.type = "Unknown"
