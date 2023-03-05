@@ -73,7 +73,7 @@ def get_button(el):
     return Button(
         text = el.name,
         font = font,
-        width = int(font[1]/5.4),
+        width = int(font[1]/element_font_scale),
         command = lambda: compound(el.name),
         bg = color
     )
@@ -91,7 +91,6 @@ def terminate():
     """
     messagebox.showinfo("Shutting Down...", "Shutting Down...")
     command = "/usr/bin/sudo /sbin/shutdown -r now"
-    #alive = False
     sys.exit() #comment this line if you are using a raspberry pi
     import subprocess
     process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
@@ -123,7 +122,7 @@ def check_mass():
 
 def scale():
     i = 1
-    while i < 20:
+    while i < 10:
         value = random.randint(0, 1000)
         weight.append(value)
         print(value)
@@ -203,15 +202,36 @@ def main():
     root.title("Mol Calculator")
     root_background_color = "dark grey"
     root.configure(background=root_background_color)
-
+    global button_scale
+    global entry_scale
+    global font_scale
+    global element_font_scale
     if screen_width == 2560 and screen_height == 1440:
         button_scale = 150
         entry_scale = 24.7
         font_scale = 44.44
+        element_font_scale = 5.4
     elif screen_width == 1440 and screen_height == 900:
         button_scale = 150
         entry_scale = 15
         font_scale = 40
+        element_font_scale = 5.4
+    elif screen_width == 1920 and screen_height == 1080:
+        button_scale = 150
+        entry_scale = 20.2
+        font_scale = 40.5
+        element_font_scale = 4.7
+    elif screen_width == 1920 and screen_height == 1200:
+        button_scale = 150
+        entry_scale = 20
+        font_scale = 40.5
+        element_font_scale = 4.7
+    elif screen_width == 800 and screen_height == 600:
+        button_scale = 80
+        entry_scale = 9
+        font_scale = 47
+        element_font_scale = 3.2
+        
     global BUTTON_WIDTH
     BUTTON_WIDTH = int(screen_width / button_scale)
     global ENTRY_WIDTH
