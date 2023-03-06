@@ -326,7 +326,7 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    if platform.uname()[0] == "Darwin":
+    if platform.uname()[0] == "Darwin" or "Mac" in platform.uname()[1]:
         main()
     else:
         t1 = threading.Thread(target=main)
@@ -337,4 +337,3 @@ if __name__ == "__main__":
         
         t1.join()
         t2.join()
-    
