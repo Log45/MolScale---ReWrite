@@ -196,16 +196,20 @@ def scale():
 #begin the GUI loop20
 def main():
     root = Tk()
+
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     print(screen_width, screen_height)
+    
     root.title("Mol Calculator")
     root_background_color = "dark grey"
     root.configure(background=root_background_color)
+
     global button_scale
     global entry_scale
     global font_scale
     global element_font_scale
+
     if screen_width == 2560 and screen_height == 1440:
         button_scale = 150
         entry_scale = 24.7
