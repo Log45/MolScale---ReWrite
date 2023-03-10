@@ -235,6 +235,16 @@ def main():
         entry_scale = 9
         font_scale = 47
         element_font_scale = 3.2
+    elif screen_width == 1280 and screen_height == 800:
+        button_scale = 140
+        entry_scale = 13.5
+        font_scale = 40.5
+        element_font_scale = 4
+    else:
+        button_scale = 150
+        entry_scale = 20
+        font_scale = 40.5
+        element_font_scale = 4.7
         
     global BUTTON_WIDTH
     BUTTON_WIDTH = int(screen_width / button_scale)
