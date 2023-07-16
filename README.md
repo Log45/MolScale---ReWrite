@@ -1,4 +1,4 @@
-**Note: This program is not compatible with MacOS due to issues with threading and tkinter**
+## **Note: This program is not compatible with MacOS due to issues with threading and tkinter**
 
 Molscale is a scale I am working on that will 'directly' measure mols from a specified chemical compound. 
 
