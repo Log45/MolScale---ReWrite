@@ -66,7 +66,7 @@ def get_button(el):
     elif el.type == "Alkaline Earth":
         color = "yellow"
     elif el.type == "Post Transition":
-        color = "blue"
+        color = "#F9F9F9"
     else:
         color = "grey"
 
